@@ -43,7 +43,7 @@ function AlreadyBoughtController (ShoppingListFactory) {
 function ShoppingListService ($scope) {
 	var service = this;
 	
-	var toBuyList = [{"name" : "Milk", "quantity" : "2"}, {"name" : "Bread", "quantity" : "1"}, {"name" : "Ham", "quantity" : "1"}];
+	var toBuyList = [{"name" : "Milk", "quantity" : "2"}, {"name" : "Bread", "quantity" : "1"}, {"name" : "Ham", "quantity" : "1"}, {"name" : "Coke", "quantity" : "3"}, {"name" : "Cheerios", "quantity" : "2"}];
 	var alreadyBoughtList = [];
 	
 	service.addToList = function(itemName, quantity) {
