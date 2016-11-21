@@ -1,0 +1,15 @@
+<body ng-controller="RegisterController as list"><h1>Registration</h1>
+<fieldset><legend>Registration</legend>
+<form name="regForm" novalidate><div ng-app="restaurant">
+<h1>You are Registered As:</h1><h2 ng-model="list.first">First name: {{list.first}}</h2><br/>
+<h2 ng-model="list.last">Last name: {{list.last}}</h2><br/>
+<h2 ng-model="list.email">Email Address: {{list.email}}</h2><br/>
+<h2 ng-model="list.phone">Phone Number: {{list.phone}}</h2><br/>
+<h1>Favorite Menu Item</h1><br/><h2 ng-model="list.itemTitle">Title: {{list.itemTitle}}</h2>
+<h2 ng-model="list.itemDescription">Description: {{list.itemDescription}}</h2></div>
+<div ng-if="list.notCompleted()" class="error">
+<a ui-sref="myinfo"><h2>Not Signed Up Yet. Sign up Now!</h2></a>
+</div>
+</form>
+</fieldset>
+</body>
