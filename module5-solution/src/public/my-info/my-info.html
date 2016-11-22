@@ -1,15 +1,20 @@
-
 <body ng-controller="InfoController as list">
-<h1>Sign Up</h1><fieldset><legend>Registration</legend>
-<form name="regForm" novalidate>First Name: 
-<input type="text" name="first" style="color:black" placeholder="Type a First Name" ng-model="list.first" value="{{ list.first }}" required><span ng-if="regForm.firstname.$invalid && regForm.firstname.$touched">Must be a valid First name: handle@domain format</span>
-<br> Last Name: <input type="text" name="last" style="color:black" placeholder="Type a Last Name" ng-model="list.last" value="{{ list.last }}" required><span ng-if="regForm.lastname.$invalid && regForm.lastname.$touched">Must be a valid Last name: handle@domain format</span>
-<br>Email: <input type="email" name="email" style="color:black" placeholder="Email" ng-model="list.email" value="{{ list.email }}" required><span ng-if="regForm.email.$invalid && regForm.email.$touched"> Must be a valid email address: handle@domain format</span>
-<br>Phone: <input type="text" name="phone" style="color:black" placeholder="Phone ###-###-####" ng-model="list.phone" value="{{list.phone}}" pattern="(\d{3})-(\d{3})-(\d{4})"><span ng-if="regForm.phone.$invalid && regForm.phone.$touched">Phone must be in the format ###-###-####.</span>
-<br>Favorite Item Short Name: <input type="text" name="itemShortname" style="color:black" placeholder="Type an Item Short Name" ng-model="list.itemShortname" value="{{ list.itemShortname }}" required><span ng-if="regForm.itemShortname.$invalid && regForm.itemShortname.$touched">Must be a valid Item Short Name: handle@domain format</span>
-<br><button  ng-click="list.submit()">Submit</button> <div style="margin-top: 10px;"> Form valid? {{regForm.$valid }}</div><div ng-if="list.itemsSent()" class="emptyMessage"><h2>Your information has been saved</h2></div><div ng-if="list.errorMsg()" class="error"><h2>No such menu number exists</h2></div>
-</form>
-</fieldset>
-</body>
-
-
+<h1>Sign Up</h1><fieldset>
+<legend>Registration</legend>
+<form name="regForm" novalidate>
+First Name: <input type="text" name="first" style="color:black" placeholder="Type a First Name" ng-model="list.first" value="{{ list.first }}" required>
+<span ng-if="regForm.first.$invalid && regForm.first.$touched">Must be a valid First name</span><br> 
+Last Name: <input type="text" name="last" style="color:black" placeholder="Type a Last Name" ng-model="list.last" value="{{ list.last }}" required>
+<span ng-if="regForm.last.$invalid && regForm.last.$touched">Must be a valid Last name</span><br>
+Email: <input type="email" name="email" style="color:black" placeholder="Email" ng-model="list.email" value="{{ list.email }}" required>
+<span ng-if="regForm.email.$invalid && regForm.email.$touched"> Must be a valid email address: handle@domain format</span><br> 
+Phone: <input type="number" id="phone" name="phone" style="color:black" ng-minlength="10" ng-maxlength="12" placeholder="Phone" ng-model="list.phone">
+ <span class="help-block" ng-show="regForm.phone.$error.required && regForm.phone.$error.number"> Valid phone number is required</span>
+ <span class="help-block" ng-show="((regForm.phone.$error.minlength || regForm.phone.$error.maxlength) && regForm.phone.$dirty) "> phone number should be 10-12 digits</span><br> 
+ Favorite Item Short Name: <input type="text" name="itemShortname" style="color:black" placeholder="Type an Item Short Name" ng-model="list.itemShortname" value="{{ list.itemShortname }}" required><span ng-if="regForm.itemShortname.$invalid && regForm.itemShortname.$touched">Must be a valid Item Short Name</span><br>
+ <button ng-disabled="regForm.$invalid" ng-click="list.submit()">Submit</button> <div style="margin-top: 10px;"> Form valid? {{regForm.$valid }}</div>
+ <div ng-if="list.itemsSent()" class="emptyMessage"><h2>Your information has been saved</h2></div>
+ <div ng-if="list.errorMsg()" class="error"><h2>No such menu number exists</h2></div>
+ </form>
+ </fieldset>
+ </body>

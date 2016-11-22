@@ -16,7 +16,8 @@ function RegisterController($q, $http, InfoService, $stateParams) {
 	list.phone = InfoService.getPhone();	
 	list.itemTitle = InfoService.getItemTitle();
 	list.itemDescription = InfoService.getItemDescription();	
-	list.picture = InfoService.getItemPicture();	
+	list.itemShortname = InfoService.getItemShortname();	
+	list.itemShortnameLetter = InfoService.getItemShortnameLetter();	
 	
 	if (list.first != null && list.first.trim() != '') {
 		list.notCompleted = false;

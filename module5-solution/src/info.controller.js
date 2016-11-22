@@ -25,8 +25,6 @@ function InfoController($q, $http, InfoService, $stateParams) {
 		list.items = response.data;
 		list.itemTitle = list.items.name;
 		list.itemDescription = list.items.description;
-		//list.itemPicture = list.items.picture;
-		list.itemPicture = '';
 		
 		InfoService.storeMyChoice(list.itemTitle, list.itemDescription, list.itemPicture);
 	  })

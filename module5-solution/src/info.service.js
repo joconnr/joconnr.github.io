@@ -10,19 +10,21 @@
  function InfoService($q, $http, $stateParams) { 
    var service = this; 
   
-	service.first = "Test";
-	service.last = "User";
-	service.email = "My@Yahoo.com";
-	service.phone = "555-1212";	
-	service.itemTitle = "Egg Foo Young";	
-	service.itemDescription = "great stuff";	
+	service.first = "";
+	service.last = "";
+	service.email = "";
+	service.phone = "";	
+	service.itemTitle = "";	
+	service.itemDescription = "";	
  
     service.storeMyInfo = function(first, last, email, phone, itemShortname) { 
 		service.first = first;
 		service.last = last;
 		service.email = email;
 		service.phone = phone;
-		service.itemShortname = itemShortname;	
+		service.itemShortname = itemShortname;		
+		var regexStr = itemShortname.match(/[A-Za-z]/);
+		service.itemShortnameLetter = regexStr[0];
 	} 
 
 	service.storeMyChoice = function(itemTitle, itemDescription, itemPic) { 
@@ -63,10 +65,13 @@
 		return service.itemDescription;
 	}
 
-	service.getItemPicture = function() { 
-		return service.itemPic;
+	service.getItemShortname = function() { 
+		return service.itemShortname;
 	} 	
 	
+	service.getItemShortnameLetter = function() { 
+		return service.itemShortnameLetter;
+	} 		
  } 
   
  })(); 
