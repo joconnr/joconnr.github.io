@@ -22,9 +22,11 @@
 		service.last = last;
 		service.email = email;
 		service.phone = phone;
-		service.itemShortname = itemShortname;		
-		var regexStr = itemShortname.match(/[A-Za-z]/);
-		service.itemShortnameLetter = regexStr[0];
+		if(itemShortname != 'undefined') {
+			service.itemShortname = itemShortname.toUpperCase();		
+			var regexStr = service.itemShortname.match(/[A-Za-z]/);
+			service.itemShortnameLetter = regexStr[0];
+		}
 	} 
 
 	service.storeMyChoice = function(itemTitle, itemDescription, itemPic) { 
